@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Klein Socrates • Developer Journey</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #000000;
+      }
+
+      header {
+        background: #0b03f1;
+        color: white;
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #3498db;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #0128d8 100%);
+        color: white;
+        text-align: center;
+        padding: 8rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        opacity: 0.9;
+      }
+
+      section {
+        padding: 4rem 2rem;
+      }
+
+      section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #2c3e50;
+      }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        padding: 1rem 0;
+        top: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .about {
+        background: #f8f9fa;
+      }
+
+      .about article {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .about p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .tools {
+        background: white;
+      }
+
+      .tools-list {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .tools-list ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .tools-list li {
+        padding: 0.8rem;
+        margin-bottom: 0.5rem;
+        background: white;
+        border-left: 4px solid #667eea;
+        border-radius: 5px;
+      }
+
+      .tools-list li strong {
+        color: #2c3e50;
+      }
+
+      .contact {
+        background: #f8f9fa;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+        font-weight: 500;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      button {
+        background: #667eea;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100%;
+      }
+
+      button:hover {
+        background: #5568d3;
+      }
+
+      footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      footer span {
+        color: #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <h1>Klein Socrates</h1>
+        <p>
+          <em
+            >Marketing Strategist turned Developer building Jara AI & learning
+            in public.</em
+          >
+        </p>
+      </section>
+
+      <section id="about" class="about">
+        <h2>My Story</h2>
+        <img src="images/3.png" />
+        <article>
+          <p>
+            Hi! I'm <strong> Klein Socrates </strong> a marketer, brand
+            strategist, and now a full-stack developer in training. After years
+            of building brands and leading creative teams, I decided to take a
+            bold leap:
+            <strong>learn how to code and build the products I imagine.</strong>
+          </p>
+
+          <p>
+            I’m the co-founder of <strong>Jara AI</strong>, Africa’s first
+            AI-powered branding and marketing platform designed for startups,
+            SMEs, and creators who deserve world-class marketing without agency
+            fees. Learning to code is my way of building better, faster, and
+            without limits.
+          </p>
+
+          <p>
+            I’m documenting my journey publicly, every lesson, every struggle,
+            every win and as I move from beginner to someone capable of shipping
+            full production-ready apps. My mission?
+            <em
+              >To create tools that empower African entrepreneurs and creators
+              to grow without friction.</em
+            >
+          </p>
+
+          <p>
+            This portfolio is the starting point of that journey. In three
+            months, I plan to be proficient enough to build web apps, AI-powered
+            tools, and features for Jara AI.
+          </p>
+        </article>
+      </section>
+
+      <section id="tools" class="tools">
+        <h2>Tools I'm Learning & Using</h2>
+        <div class="tools-list">
+          <ul>
+            <li><strong>HTML5</strong> — The structure of the web</li>
+            <li><strong>CSS3</strong> — Styling and responsive layout</li>
+            <li>
+              <strong>JavaScript</strong> — Logic, interactivity & AI
+              integrations
+            </li>
+            <li>
+              <strong>Git & GitHub</strong> — Version control + build in public
+            </li>
+            <li><strong>VS Code</strong> — My coding workspace</li>
+            <li>
+              <strong>Figma</strong> — UI/UX design for Jara AI components
+            </li>
+            <li>
+              <strong>OpenAI & API tools</strong> — To power AI-driven features
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Reach Out</h2>
+        <form>
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your.email@example.com"
+            required
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Let’s build something meaningful…"
+            required
+          ></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 <span>Klein Socrates</span>. All rights reserved.</p>
+      <p><em>Building in public • Learning by doing • Powered by coffee</em></p>
+    </footer>
+  </body>
+</html>
