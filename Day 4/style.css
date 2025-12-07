@@ -1,0 +1,483 @@
+ /* ============================================
+           MOBILE-FIRST APPROACH
+           We write styles for mobile first, then use
+           media queries to adapt for larger screens
+           ============================================ */
+
+      /* Reset default browser styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Root font-size for rem calculations
+           1rem = 16px by default
+           This makes it easy to scale everything */
+      html {
+        font-size: 16px; /* Base size - all rem units calculate from this */
+        scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+      }
+
+      /* Body styling - MOBILE FIRST */
+      body {
+        font-family: "Georgia", serif;
+        line-height: 1.6;
+        color: #333;
+        /* Mobile: smaller font */
+        font-size: 0.9rem; /* 0.9 × 16px = 14.4px */
+      }
+
+      /* Container with percentage-based max-width
+           % units are relative to parent element */
+      .container {
+        width: 90%; /* Takes 90% of screen width (responsive!) */
+        max-width: 1200px; /* Never exceeds 1200px on large screens */
+        margin: 0 auto; /* Centers the container */
+        padding: 0 1rem; /* 1rem = 16px padding on sides */
+      }
+
+      /* ============================================
+           HEADER & NAVIGATION - FLEXBOX RESPONSIVE
+           ============================================ */
+
+      header {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 1rem 0; /* rem units scale with root font-size */
+        position: sticky; /* Sticks to top when scrolling */
+        top: 0;
+        z-index: 1000; /* Stays above other content */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Navigation using FLEXBOX
+           MOBILE: Stack vertically (column) */
+      nav {
+        display: flex;
+        flex-direction: column; /* MOBILE: Vertical stacking */
+        align-items: center; /* Center items */
+        gap: 1rem; /* Space between flex items (16px) */
+      }
+
+      .logo {
+        font-size: 1.5rem; /* 1.5 × 16px = 24px */
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      /* Navigation links container */
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Wraps to new line if needed */
+        gap: 1.5rem; /* Space between links */
+        list-style: none;
+        justify-content: center; /* Center on mobile */
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem; /* 16px */
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #e74c3c;
+      }
+
+      /* ============================================
+           HERO SECTION - VH/VW UNITS
+           vh = viewport height (1vh = 1% of screen height)
+           vw = viewport width (1vw = 1% of screen width)
+           ============================================ */
+
+      .hero {
+        /* vh unit makes height responsive to screen size */
+        height: 70vh; /* 70% of viewport height */
+        min-height: 400px; /* Never smaller than 400px */
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200")
+            center/cover;
+        display: flex;
+        align-items: center; /* Vertically center content */
+        justify-content: center; /* Horizontally center content */
+        text-align: center;
+        color: white;
+      }
+
+      .hero-content h1 {
+        /* vw units scale with viewport width */
+        font-size: 8vw; /* 8% of viewport width - shrinks/grows with screen */
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      .hero-content p {
+        font-size: 1.2rem; /* 1.2 × 16px = 19.2px */
+        margin-bottom: 2rem;
+        /* em units are relative to parent font-size */
+        padding: 0 1em; /* 1em = 1.2rem = 19.2px (relative to parent) */
+      }
+
+      .cta-button {
+        background-color: #e74c3c;
+        color: white;
+        padding: 1rem 2rem; /* rem units for consistent sizing */
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background-color: #c0392b;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+      }
+
+      /* ============================================
+           ABOUT SECTION - FLEXBOX WITH WRAP
+           ============================================ */
+
+      .about {
+        padding: 4rem 0; /* rem units: 64px top/bottom */
+        background-color: #f8f9fa;
+      }
+
+      .about h2 {
+        text-align: center;
+        font-size: 2.5rem; /* 2.5 × 16px = 40px */
+        margin-bottom: 3rem;
+        color: #2c3e50;
+      }
+
+      /* Flexbox container that wraps on small screens */
+      .about-content {
+        display: flex;
+        flex-wrap: wrap; /* Items wrap to next line if no space */
+        gap: 2rem; /* Space between flex items */
+        align-items: center;
+      }
+
+      /* Each child takes 100% width on mobile (stacks vertically) */
+      .about-text,
+      .about-image {
+        flex: 1 1 100%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 100% */
+        min-width: 250px; /* Minimum width before wrapping */
+      }
+
+      .about-image img {
+        width: 100%; /* Takes full width of container */
+        height: auto; /* Maintains aspect ratio */
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      /* ============================================
+           MENU SECTION - CSS GRID RESPONSIVE
+           ============================================ */
+
+      .menu {
+        padding: 4rem 0;
+        background-color: white;
+      }
+
+      .menu h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+      }
+
+      /* CSS GRID - MOBILE FIRST
+           Mobile: 1 column */
+      .menu-grid {
+        display: grid;
+        /* MOBILE: Single column that takes full width */
+        grid-template-columns: 1fr; /* 1 fraction = 100% */
+        gap: 2rem; /* Space between grid items */
+      }
+
+      .menu-item {
+        background: white;
+        border: 2px solid #ecf0f1;
+        border-radius: 10px;
+        padding: 1.5rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu-item img {
+        width: 100%; /* Full width of container */
+        height: 200px;
+        object-fit: cover; /* Covers area without distortion */
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+
+      .menu-item h3 {
+        font-size: 1.5rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      .menu-item p {
+        color: #7f8c8d;
+        margin-bottom: 1rem;
+      }
+
+      .price {
+        font-size: 1.3rem;
+        color: #e74c3c;
+        font-weight: bold;
+      }
+
+      /* ============================================
+           GALLERY SECTION - FLEXBOX WITH SPACE-AROUND
+           ============================================ */
+
+      .gallery {
+        padding: 4rem 0;
+        background-color: #f8f9fa;
+      }
+
+      .gallery h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+      }
+
+      /* Flexbox with wrap and space-around */
+      .gallery-grid {
+        display: flex;
+        flex-wrap: wrap; /* Wraps to multiple rows */
+        justify-content: space-around; /* Even space around items */
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        /* Mobile: Takes almost full width */
+        flex: 1 1 100%; /* Full width on mobile */
+        max-width: 100%;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.05); /* Zoom on hover */
+      }
+
+      /* ============================================
+           CONTACT SECTION - FLEXBOX SPACE-BETWEEN
+           ============================================ */
+
+      .contact {
+        padding: 4rem 0;
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .contact h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      /* Flexbox container - MOBILE: column */
+      .contact-content {
+        display: flex;
+        flex-direction: column; /* MOBILE: Stack vertically */
+        gap: 2rem;
+      }
+
+      .contact-info,
+      .contact-hours {
+        flex: 1;
+      }
+
+      .contact-info h3,
+      .contact-hours h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #e74c3c;
+      }
+
+      .contact-info p,
+      .contact-hours p {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* ============================================
+           FOOTER
+           ============================================ */
+
+      footer {
+        background-color: #1a252f;
+        color: white;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      footer p {
+        font-size: 1rem;
+      }
+
+      /* ============================================
+           MEDIA QUERY: TABLETS (768px and up)
+           Changes for medium screens
+           ============================================ */
+
+      @media (min-width: 768px) {
+        /* Increase base font size for tablets */
+        body {
+          font-size: 1rem; /* 16px */
+        }
+
+        /* NAVIGATION: Switch to horizontal layout */
+        nav {
+          flex-direction: row; /* Horizontal navigation */
+          justify-content: space-between; /* Logo left, links right */
+        }
+
+        .nav-links {
+          justify-content: flex-end; /* Align links to right */
+        }
+
+        /* HERO: Adjust text size */
+        .hero-content h1 {
+          font-size: 4rem; /* Fixed size instead of vw */
+        }
+
+        /* ABOUT: Side-by-side layout */
+        .about-text,
+        .about-image {
+          flex: 1 1 45%; /* Each takes ~45% width */
+        }
+
+        /* MENU GRID: 2 columns on tablets */
+        .menu-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+        }
+
+        /* GALLERY: 2 items per row */
+        .gallery-item {
+          flex: 1 1 45%; /* Each takes ~45% width */
+          max-width: 48%;
+        }
+
+        /* CONTACT: Side-by-side layout */
+        .contact-content {
+          flex-direction: row; /* Horizontal layout */
+          justify-content: space-between; /* Space between sections */
+        }
+      }
+
+      /* ============================================
+           MEDIA QUERY: DESKTOPS (1024px and up)
+           Changes for large screens
+           ============================================ */
+
+      @media (min-width: 1024px) {
+        /* Even larger base font */
+        body {
+          font-size: 1.1rem; /* 17.6px */
+        }
+
+        /* HERO: Full screen height */
+        .hero {
+          height: 90vh; /* 90% of viewport height */
+        }
+
+        .hero-content h1 {
+          font-size: 5rem; /* 80px */
+        }
+
+        /* MENU GRID: 3 columns on desktop */
+        .menu-grid {
+          grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        }
+
+        /* GALLERY: 3 items per row */
+        .gallery-item {
+          flex: 1 1 30%; /* Each takes ~30% width */
+          max-width: 32%;
+        }
+
+        /* Container can be wider */
+        .container {
+          width: 85%; /* Use more screen space */
+        }
+      }
+
+      /* ============================================
+           MEDIA QUERY: LARGE DESKTOPS (1400px and up)
+           Changes for extra large screens
+           ============================================ */
+
+      @media (min-width: 1400px) {
+        /* MENU GRID: 4 columns on very large screens */
+        .menu-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+        }
+
+        /* GALLERY: 4 items per row */
+        .gallery-item {
+          flex: 1 1 22%; /* Each takes ~22% width */
+          max-width: 23%;
+        }
+      }
+
+      /* ============================================
+           MEDIA QUERY: MOBILE SMALL (480px and down)
+           Extra adjustments for very small screens
+           ============================================ */
+
+      @media (max-width: 480px) {
+        /* Smaller font for tiny screens */
+        html {
+          font-size: 14px; /* Base becomes 14px instead of 16px */
+        }
+
+        .hero-content h1 {
+          font-size: 10vw; /* Larger vw for readability */
+        }
+
+        .nav-links {
+          gap: 1rem; /* Less space between links */
+          font-size: 0.9rem;
+        }
+
+        /* Smaller padding on small screens */
+        .about,
+        .menu,
+        .gallery,
+        .contact {
+          padding: 2rem 0; /* Less vertical padding */
+        }
+
+        .menu-item {
+          padding: 1rem; /* Less padding inside items */
+        }
+      }
